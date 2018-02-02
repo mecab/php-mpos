@@ -75,6 +75,8 @@ foreach ($aAllBlocks as $iIndex => $aBlock) {
       $monitoring->endCronjob($cron_name, 'E0013', 1, true);
     }
 
+    $mysqli->begin_transaction();
+
     // Loop through all accounts that have found shares for this round
     foreach ($aAccountShares as $key => $aData) {
       // Skip users with only invalids
@@ -152,6 +154,8 @@ foreach ($aAllBlocks as $iIndex => $aBlock) {
       $log->logFatal('Failed to mark block as accounted! Aborted! Error: ' . $block->getCronError());
       $monitoring->endCronjob($cron_name, 'E0014', 1, true);
     }
+
+    $mysqli->commit();
   } else {
     $log->logFatal('Potential double payout detected for block ' . $aBlock['id'] . '. Aborted.');
     $aMailData = array(
