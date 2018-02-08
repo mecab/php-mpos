@@ -12,12 +12,19 @@ $config['protect_session_state'] = false;
 
 /**
  * Logging
- *  Emergency = 0, Alert     = 1,  Critical  = 2
- *  Error     = 3, Warn      = 4,  Notice    = 5
- *  Info      = 6, Debug     = 7,  Nothing   = 8
+ *
+ * These are in order of highest priority to lowest.
+ * - 'emergency'
+ * - 'alert'
+ * - 'critical'
+ * - 'error'
+ * - 'warning'
+ * - 'notice'
+ * - 'info'
+ * - 'debug'
  */
 $config['logging']['enabled'] = true;
-$config['logging']['level'] = 6;
+$config['logging']['level'] = 'info';
 $config['logging']['path'] = realpath(BASEPATH.'../logs');
 
 /**

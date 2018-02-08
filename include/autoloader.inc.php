@@ -3,6 +3,11 @@
 $defflip = (!cfip()) ? exit(header('HTTP/1.1 401 Unauthorized')) : 1;
 
 // Default classes
+spl_autoload_register(function ($class_name) {
+  include_once INCLUDE_DIR . '/lib/' .str_replace('\\', DIRECTORY_SEPARATOR, $class_name) . '.php';
+});
+require_once(CLASS_DIR . '/AbstractLogger.php');
+require_once(CLASS_DIR . '/FileLogger.php');
 require_once(INCLUDE_DIR . '/lib/KLogger.php');
 require_once(CLASS_DIR . '/logger.class.php');
 require_once(CLASS_DIR . '/debug.class.php');
