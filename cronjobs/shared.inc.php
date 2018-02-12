@@ -52,7 +52,7 @@ require_once(BASEPATH . '../include/bootstrap.php');
 require_once(BASEPATH . '../include/version.inc.php');
 
 // Load 3rd party logging library for running crons
-$log = new FileLogger($config, $cron_name);
+$log = LoggerFactory::createLogger($config, $cron_name);
 
 // Command line switches
 array_shift($argv);

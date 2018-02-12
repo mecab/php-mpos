@@ -25,6 +25,8 @@ $config['protect_session_state'] = false;
  */
 $config['logging']['enabled'] = true;
 $config['logging']['level'] = 'info';
+$config['logging']['module'] = 'file';
+$config['logging']['gcp']['logNamePrefix'] = 'mpos';
 $config['logging']['path'] = realpath(BASEPATH.'../logs');
 
 /**

@@ -4,6 +4,7 @@ $defflip = (!cfip()) ? exit(header('HTTP/1.1 401 Unauthorized')) : 1;
 $dStartTime = microtime(true);
 
 define('INCLUDE_DIR', BASEPATH . '../include');
+define('VENDOR_DIR', BASEPATH . '../vendor');
 define('CLASS_DIR', INCLUDE_DIR . '/classes');
 define('PAGES_DIR', INCLUDE_DIR . '/pages');
 define('TEMPLATE_DIR', BASEPATH . '../templates');

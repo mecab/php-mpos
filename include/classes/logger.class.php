@@ -5,12 +5,12 @@ use Psr\Log\LogLevel;
 class Logger {
   private $logger;
   private $logging = false;
-  public function __construct($config, $context) {
+  public function __construct($config) {
     if (!$config['logging']['enabled']) {
       return;
     }
-    $this->logger = new FileLogger($config, $context);
     $this->logging = true;
+    $this->logger = LoggerFactory::createLogger($config, 'website');
     $this->floatStartTime = microtime(true);
   }
 
